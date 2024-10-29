@@ -29,13 +29,13 @@ Put the compressed video in the mmediting/data folder.
 ### 2. Train
 Please modify the address to your compressed video and GT in the config file first.
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3 bash ./tools/dist_train.sh --config ./config/STLVQE_Train.py
+CUDA_VISIBLE_DEVICES=0,1,2,3 bash ./tools/dist_train.sh ./config/STLVQE_Train.py
 ```
 
 ### 3. Finetune
 Please modify the address to your weight in the config file (load_from).
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3 bash ./tools/dist_train.sh --config ./config/STLVQE_Finetune.py
+CUDA_VISIBLE_DEVICES=0,1,2,3 bash ./tools/dist_train.sh ./config/STLVQE_Finetune.py
 ```
 
 ### 4. Transfer to LUT
@@ -46,7 +46,7 @@ python Transfer_to_lut_6d.py
 
 ### 5. Inference
 ```bash
-python ./tools/test.py --config ./config/STLVQE_Inference.py
+python ./tools/test.py ./config/STLVQE_Inference.py ./your/address/to/weight
 ```
 
 ## 😉 Citation
